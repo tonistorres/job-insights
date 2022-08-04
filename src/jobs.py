@@ -15,6 +15,3 @@ def read(path):
         header, *data = jobs
         return [header, *data]
     pass
-
-
-
