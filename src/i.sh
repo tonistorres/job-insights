@@ -4,6 +4,7 @@ Program Project Job Insights
 ---------------------------------
 0 - Exit
 1 - Check error lint flake8
+2 - Execute function in file testing corresponding
 "
 
 OPTIONJOKER(){
@@ -20,6 +21,13 @@ OPTIONJOKER(){
 INPUT(){
 echo "$MENU "
 read -p "Enter the option [0,1] -->> " OPTION
+
+if [ "$OPTION" -eq 2 ];then
+read -p "Enter name function testing ex: test_xablau:" NAME
+python3 -m pytest -k $NAME
+exit 1
+fi
+
 }
 
 INPUT
