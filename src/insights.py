@@ -34,6 +34,9 @@ def filter_by_industry(jobs, industry):
     return resul_filter
 
 
+pass
+
+
 def get_max_salary(path):
     dict = read(path)
     arry_values = []
@@ -80,7 +83,9 @@ def matches_salary_range(job, salary):
     max_salary = job['max_salary']
 
     return salary in range(min_salary, max_salary)
-    pass
+
+
+pass
 
 
 def filter_by_salary_range(jobs, salary):
@@ -99,3 +104,6 @@ def filter_by_salary_range(jobs, salary):
         Jobs whose salary range contains `salary`
     """
     return []
+
+
+pass
