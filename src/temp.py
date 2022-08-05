@@ -7,9 +7,9 @@ path = "jobs.csv"
 def industries(path):
     dict = read(path)
     industries = []
-    for job in dict:
-        if job["industry"] != "":
-            industries.append(job["industry"])
+    for element in dict:
+        if element["industry"] != "":
+            industries.append(element["industry"])
     return [*set(industries)]
 
 
@@ -21,17 +21,12 @@ def filter_by_industry(jobs, industry):
     return resul_filter
 
 
-data = industries(path)
-print(data)
-
-arr_results = filter_by_industry(data, 'Oil')
-print(arr_results)
+pass
 
 
-# def industries_list_test(path):
-#     dict = read(path)
-#     results = set()
-#     for element in dict:
-#         if element["industry"] != '':
-#             results.add(element["industry"])
-#     return [*results]
+def lis_read_filter_industry():
+    jobs = read(path)
+    select_list = ["Finance"]
+    temp = []
+
+pass    
