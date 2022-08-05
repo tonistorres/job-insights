@@ -10,7 +10,7 @@ def get_file_print_max_salries(path):
     for dic in dict:
         if dic["max_salary"] != "":
             arry_values.append(int(dic["max_salary"]))
-    # https://www.tutorialspoint.com/python/list_max.htm        
+    # https://www.tutorialspoint.com/python/list_max.htm
     return max(arry_values)
 
 
