@@ -22,11 +22,3 @@ def filter_by_industry(jobs, industry):
 
 
 pass
-
-
-def lis_read_filter_industry():
-    jobs = read(path)
-    select_list = ["Finance"]
-    temp = []
-
-pass    
