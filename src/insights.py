@@ -63,28 +63,23 @@ pass
 
 
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
+    if 'max_salary' not in job or 'min_salary' not in job:
+        raise ValueError("'max_salary' or 'min_salary' is undefined")
 
-    Parameters
-    ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
+    elif (type(job["max_salary"]) is not int or
+            type(job["min_salary"]) is not int):
+        raise ValueError("'max_salary' or 'min_salary' is not an integer")
 
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
+    elif type(salary) is not int:
+        raise ValueError("'salary' is not an integer")
 
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
+    elif job["min_salary"] > job["max_salary"]:
+        raise ValueError("'min_salary' is higher than 'max_salary'")
+
+    min_salary = job['min_salary']
+    max_salary = job['max_salary']
+
+    return salary in range(min_salary, max_salary)
     pass
 
 
