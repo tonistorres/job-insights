@@ -1,5 +1,3 @@
-# linha por causa do teste
-from curses.ascii import isdigit
 from src.jobs import read
 
 
@@ -125,22 +123,3 @@ def filter_by_salary_range(jobs, salary):
         Jobs whose salary range contains `salary`
     """
     return []
-
-
-# def get_file_unic(path):
-#     dict = read(path)
-#     for dic in dict:
-#         print(dic)
-
-
-# get_file_unic(path)
-
-# result_unic = get_unique_job_types(path)
-# print("-------- Types unic:------")
-# print(result_unic)
-# print("--------------------------")
-
-# resultado = get_max_salary(path)
-# print("--- Max Value Salries: ---")
-# print(resultado)
-# print("--------------------------")
