@@ -21,7 +21,7 @@ def get_unique_industries(path):
     dict = read(path)
     results = set()
     for element in dict:
-        if element["industry"] != '':
+        if element["industry"] != "":
             results.add(element["industry"])
     return [*results]
 
@@ -66,11 +66,13 @@ pass
 
 
 def matches_salary_range(job, salary):
-    if 'max_salary' not in job or 'min_salary' not in job:
+    if "max_salary" not in job or "min_salary" not in job:
         raise ValueError("'max_salary' or 'min_salary' is undefined")
 
-    elif (type(job["max_salary"]) is not int or
-            type(job["min_salary"]) is not int):
+    elif (
+        type(job["max_salary"]) is not int
+        or type(job["min_salary"]) is not int
+    ):
         raise ValueError("'max_salary' or 'min_salary' is not an integer")
 
     elif type(salary) is not int:
@@ -79,8 +81,8 @@ def matches_salary_range(job, salary):
     elif job["min_salary"] > job["max_salary"]:
         raise ValueError("'min_salary' is higher than 'max_salary'")
 
-    min_salary = job['min_salary']
-    max_salary = job['max_salary']
+    min_salary = job["min_salary"]
+    max_salary = job["max_salary"]
 
     return salary in range(min_salary, max_salary)
 
@@ -89,21 +91,14 @@ pass
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    arr = []
+    for element in jobs:
+        try:
+            if matches_salary_range(element, salary):
+                arr.append(element)
+        except ValueError:
+            print("ValueError")
+    return arr
 
 
 pass
