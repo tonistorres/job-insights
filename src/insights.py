@@ -1,7 +1,6 @@
 # linha por causa do teste
+from curses.ascii import isdigit
 from src.jobs import read
-
-# path = "src/jobs.csv"
 
 
 def get_unique_job_types(path):
@@ -57,39 +56,31 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    dict = read(path)
+    arry_values = []
+    for dic in dict:
+        # https://www.w3schools.com/python/ref_string_isdigit.asp
+        if dic["max_salary"].isdigit():
+            arry_values.append(int(dic["max_salary"]))
+    # https://www.tutorialspoint.com/python/list_max.htm
+    return max(arry_values)
 
-    Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+pass
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    dict = read(path)
+    arry_values = []
+    for dic in dict:
+        # https://www.w3schools.com/python/ref_string_isdigit.asp
+        if dic["min_salary"].isdigit():
+            arry_values.append(int(dic["min_salary"]))
+    # https://www.tutorialspoint.com/python/list_max.htm
+    return min(arry_values)
 
-    Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+pass
 
 
 def matches_salary_range(job, salary):
@@ -134,3 +125,22 @@ def filter_by_salary_range(jobs, salary):
         Jobs whose salary range contains `salary`
     """
     return []
+
+
+# def get_file_unic(path):
+#     dict = read(path)
+#     for dic in dict:
+#         print(dic)
+
+
+# get_file_unic(path)
+
+# result_unic = get_unique_job_types(path)
+# print("-------- Types unic:------")
+# print(result_unic)
+# print("--------------------------")
+
+# resultado = get_max_salary(path)
+# print("--- Max Value Salries: ---")
+# print(resultado)
+# print("--------------------------")
