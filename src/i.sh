@@ -6,6 +6,7 @@ Program Project Job Insights
 1 - Check error lint flake8
 2 - Execute function in file testing corresponding
 3 - Activate Environment Virtual Python
+4 - Execute File temp.py 
 "
 
 OPTIONJOKER(){
@@ -21,13 +22,28 @@ OPTIONJOKER(){
 
 INPUT(){
 echo "$MENU "
-read -p "Enter the option [0,1,2,3] -->> " OPTION
+read -p "Enter the option [0,1,2,3,4] -->> " OPTION
 
 if [ "$OPTION" -eq 2 ];then
 read -p "Enter name function testing ex: test_xablau:" NAME
 python3 -m pytest -k $NAME
 exit 1
 fi
+
+if [ "$OPTION" -eq 3 ];then
+cd ..
+pwd
+sleep 2
+source .venv/bin/activate
+exit 1
+fi
+
+if [ "$OPTION" -eq 4 ];then
+python3 temp.py
+exit 1
+fi
+
+
 }
 
 INPUT
@@ -36,13 +52,6 @@ case "$OPTION" in
         
         1)
         python3 -m flake8 
-        ;;
-
-        3)
-        cd ..
-        pwd
-        sleep 2
-        source .venv/bin/activate
         ;;
 
         *)
